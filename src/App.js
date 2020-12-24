@@ -22,6 +22,10 @@ import theme from './theme';
 import HtmlSemanticSubtleImg1 from './assets/html-semantic-subtle-0.png';
 import HtmlSemanticSubtleImg2 from './assets/html-semantic-subtle-5.png';
 import HtmlSemanticSubtleImg3 from './assets/html-semantic-subtle-6.png';
+import DOMFullProcessImg from './assets/dom-full-process.png';
+import CSSOMTreeImg from './assets/cssom-tree.png';
+import RenderTreeImg from './assets/render-tree-construction.png';
+import IBMFestPerfSnap from './assets/ibmfest-perf-snap.png';
 import {
   semanticMarkupSolution1,
   semanticMarkupSolution1Images,
@@ -33,6 +37,10 @@ import {
 
 function RefLink({ children, href = children, target = "blank", ...props }) {
   return <Link href={href} target={target} color="quaternary" fontSize={20} {...props}>{children}</Link>
+}
+
+function Footnote({ children, ...props }) {
+  return <Text color="quaternary" fontSize={18} {...props}>{children}</Text>
 }
 
 function CS({ children, ...props }) {
@@ -299,6 +307,12 @@ function App() {
           </RefLink>
         </Appear>
       </Slide>
+      <Slide backgroundColor="secondary">
+        <Image src={DOMFullProcessImg} alt="DOM full parsing process" style={{ objectFit: 'contain' }} />
+        <RefLink color="tertiary">
+          https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model
+        </RefLink>
+      </Slide>
       <Slide>
         <Text>
           CSSOM - CSS Object Model is a set of APIs allowing the manipulation of CSS from JavaScript. It is much like the DOM, but for the CSS rather than the HTML. It allows users to read and modify CSS style dynamically.
@@ -306,6 +320,82 @@ function App() {
         <RefLink>
           https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
         </RefLink>
+      </Slide>
+      <Slide backgroundColor="secondary">
+        <FlexBox justifyContent="center" alignItems="center" flexDirection="column" height="100%">
+          <Image src={CSSOMTreeImg} alt="CSSOM tree" style={{ objectFit: 'contain' }} />
+          <RefLink color="tertiary">
+            https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model
+          </RefLink>
+        </FlexBox>
+      </Slide>
+      <Slide backgroundColor="secondary">
+        <FlexBox justifyContent="center" alignItems="center" flexDirection="column" height="100%">
+          <Image src={RenderTreeImg} alt="Render tree construction" style={{ objectFit: 'contain' }} />
+          <RefLink color="tertiary">
+            https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction
+          </RefLink>
+        </FlexBox>
+      </Slide>
+      <Slide>
+        <Text>So what?</Text>
+        <Appear elementNum={0}>
+          <Text>
+            Parsing and rendering DOM and CSSOM trees take time. We can improve performance by optimizing our HTML markup.
+          </Text>
+        </Appear>
+        <Appear elementNum={1}>
+          <FlexBox justifyContent="center" alignItems="center" flexDirection="column">
+            <Image src={IBMFestPerfSnap} alt="Performance snapshot" style={{ objectFit: 'contain' }} /> 
+            <Footnote>IBMFest.sk performance snapshot</Footnote>   
+          </FlexBox>
+        </Appear>
+      </Slide>
+      <Slide>
+        <Text>
+          Simplest optimization is too avoid so called "div soups": 
+        </Text>
+        <Appear elementNum={0}>
+          <CodePane language="html" indentSize={4} autoFillHeight height="100%">
+            {`
+<div class="my-wrapper">
+  <div class="wrapper-content">
+    <div class="content-wrapper">
+      <div class="content-wrapper-wrapper">
+        <div class="content-wrapper-wrapper-wrapper">
+          <div class="content">
+            🤯
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            `}
+          </CodePane>
+        </Appear>
+        <Appear elementNum={1}>
+          <Text>
+            "[div, section] soups" can be avoided by using modern CSS layouts such as Grid and Flexbox.
+          </Text>
+        </Appear>
+      </Slide>
+      <Slide>
+        <iframe
+          height="90%"
+          scrolling="no"
+          title="How to avoid div soups"
+          src="https://codepen.io/Hazeman/embed/oNzojWL?height=265&theme-id=dark&default-tab=css,result"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen <a href='https://codepen.io/Hazeman/pen/oNzojWL'>How to avoid div soups</a> by Nizomiddin Toshpulatov (<a href='https://codepen.io/Hazeman'>@Hazeman</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </iframe>
+      </Slide>
+      <Slide>
+        
       </Slide>
     </Deck>
   );
