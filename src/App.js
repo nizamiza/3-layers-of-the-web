@@ -17,6 +17,7 @@ import {
   FullScreen,
   Progress,
   Link,
+  Quote,
 } from 'spectacle';
 import theme from './theme';
 import HtmlSemanticSubtleImg1 from './assets/html-semantic-subtle-0.png';
@@ -26,6 +27,7 @@ import DOMFullProcessImg from './assets/dom-full-process.png';
 import CSSOMTreeImg from './assets/cssom-tree.png';
 import RenderTreeImg from './assets/render-tree-construction.png';
 import IBMFestPerfSnap from './assets/ibmfest-perf-snap.png';
+import YzonePoorColorContrastImg from './assets/yzone-poor-contrast.png';
 import {
   semanticMarkupSolution1,
   semanticMarkupSolution1Images,
@@ -395,7 +397,212 @@ function App() {
         </iframe>
       </Slide>
       <Slide>
-        
+        <Heading>
+          CSS Units
+        </Heading>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>
+              Absolute length units
+            </ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>
+              Relative length units
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Text>Absolute length units</Text>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem><CS>cm</CS> - centimeters, <CS>1cm = 96px/2.54</CS></ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem><CS>mm</CS> - millimeters, <CS>1mm = 1/10th of 1cm</CS></ListItem>
+          </Appear>
+          <Appear elementNum={2}>
+            <ListItem><CS>Q</CS> - quarter-millimeters <CS>1Q = 1/40th of 1cm</CS></ListItem>
+          </Appear>
+          <Appear elementNum={3}>
+            <ListItem><CS>in</CS> - inches <CS>1in = 2.54cm = 96px</CS></ListItem>
+          </Appear>
+          <Appear elementNum={4}>
+            <ListItem><CS>pc</CS> - picas <CS>1pc = 1/6th of 1in</CS></ListItem>
+          </Appear>
+          <Appear elementNum={5}>
+            <ListItem><CS>pt</CS> - points <CS>1pt = 1/72th of 1in</CS></ListItem>
+          </Appear>
+          <Appear elementNum={6}>
+            <ListItem><CS>px</CS> - pixels <CS>1px = 1/96th of 1in</CS></ListItem>
+          </Appear>
+        </UnorderedList>
+        <Appear elementNum={7}>
+          <Footnote>
+            Most of these units are mainly used for printing.
+          </Footnote>
+          <RefLink>
+            https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+          </RefLink>
+        </Appear>
+      </Slide>
+      <Slide>
+        <Text>Relative length units</Text>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>
+              <CS>em</CS> - font size of the parent, in the case of typographical properties like <CS>font-size</CS>, and font size of the element itself, in the case of other properties like <CS>width</CS>.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>
+              <CS>ex</CS> - x-height of the element's font.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={2}>
+            <ListItem>
+              <CS>ch</CS> - the advance measure (width) of the glyph "0" of the element's font.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={3}>
+            <ListItem>
+              <CS>rem</CS> - font size of the root element.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={4}>
+            <ListItem>
+              <CS>lh</CS> - line height of the element.
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Text>Relative length units</Text>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>
+              <CS>vw</CS> - 1% of the viewport's width.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>
+              <CS>vh</CS> - 1% of the viewport's height.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={2}>
+            <ListItem>
+              <CS>vmin</CS> - 1% of the viewport's smaller dimension.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={3}>
+            <ListItem>
+              <CS>vmax</CS> - 1% of the viewport's larger dimension.
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+        <Appear elementNum={4}>
+          <RefLink>
+            https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+          </RefLink>
+        </Appear>
+      </Slide>
+      <Slide>
+        <Text>Prefer relative units over absolute ones</Text>
+        <Appear elementNum={0}>
+          <Text>Benefits:</Text>
+        </Appear>
+        <UnorderedList>
+          <Appear elementNum={1}>
+            <ListItem>
+              Layout and styles are adjusted based on the screen and font size.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={2}>
+            <ListItem>
+              User can adjust size of the content.
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+        <Appear elementNum={3}>
+          <RefLink>https://codepen.io/Hazeman/pen/wvzGXBG</RefLink>
+        </Appear>
+      </Slide>
+      <Slide>
+        <Heading>Modern CSS</Heading>
+        <Appear elementNum={0}>
+          <Text fontSize={28}>
+            CSS Grid Layout excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.
+          </Text>
+          <RefLink href="https://css-tricks.com/snippets/css/complete-guide-grid/">Complete guide to CSS Grid</RefLink>
+          <RefLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">
+            About CSS Grid
+          </RefLink>
+        </Appear>
+        <Appear elementNum={1}>
+          <Text fontSize={28}>
+            The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities.
+          </Text>
+          <RefLink href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Complete guide to Flexbox</RefLink>
+          <RefLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">
+            Flexbox basic concepts
+          </RefLink>
+        </Appear>
+      </Slide>
+      <Slide>
+        <Heading>Accessibility</Heading>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>Color contrast</ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>Font size</ListItem>
+          </Appear>
+          <Appear elementNum={2}>
+            <ListItem>
+              CSS media features:
+              <UnorderedList>
+                <ListItem><CS>prefers-contrast</CS></ListItem>
+                <ListItem><CS>prefers-reduced-motion</CS></ListItem>
+                <ListItem><CS>prefers-reduced-transparency</CS></ListItem>
+              </UnorderedList>
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Text>Good color contrast matters</Text>
+        <Image src={YzonePoorColorContrastImg} alt="Poor color contrast example" style={{ objectFit: 'contain' }} />
+      </Slide>
+      <Slide>
+        <Text>Tools to check color contrast:</Text>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>
+              Google Chrome and Edge Chromium inspection tool
+            </ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>
+              Web AIM tool: <RefLink>https://webaim.org/resources/contrastchecker/</RefLink>
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Text>Font size</Text>
+        <Appear elementNum={0}>
+          <Text>Minimum font size should be 16px</Text>
+        </Appear>
+        <Appear elementNum={1}>
+          <Text>Always use relative CSS units for font sizes - <CS>rem</CS> and <CS>em</CS>.</Text>
+        </Appear>
+        <Appear elementNum={2}>
+          <Text>Optimize letter-spacing based on the font and its weight</Text>
+        </Appear>
+      </Slide>
+      <Slide>
+        <Heading>JavaScript</Heading>
       </Slide>
     </Deck>
   );
