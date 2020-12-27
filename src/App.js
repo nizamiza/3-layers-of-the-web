@@ -17,7 +17,6 @@ import {
   FullScreen,
   Progress,
   Link,
-  Quote,
 } from 'spectacle';
 import theme from './theme';
 import HtmlSemanticSubtleImg1 from './assets/html-semantic-subtle-0.png';
@@ -602,7 +601,46 @@ function App() {
         </Appear>
       </Slide>
       <Slide>
-        <Heading>JavaScript</Heading>
+        <Heading>EcmaScript</Heading>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>
+              Ecma International - European association for standardizing information and communication systems.
+            </ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>
+              Latest EcmaScript standard - ECMA 262 (ECMA 2020)
+              <br />
+              <RefLink>https://www.ecma-international.org/ecma-262/</RefLink>
+            </ListItem>
+          </Appear>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Text>Useful resources for frontend web development</Text>
+        <UnorderedList>
+          <Appear elementNum={0}>
+            <ListItem>
+              <RefLink href="https://developer.mozilla.org/en-US/">developer.mozilla.org</RefLink>
+            </ListItem>
+          </Appear>
+          <Appear elementNum={1}>
+            <ListItem>
+              <RefLink href="https://css-tricks.com/">css-tricks.com</RefLink>
+            </ListItem>
+          </Appear>
+          <Appear elementNum={2}>
+            <ListItem>
+              <RefLink href="https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA">fireship.io</RefLink>
+            </ListItem>
+          </Appear>
+          <Appear elementNum={3}>
+            <ListItem>
+              <RefLink href="https://www.youtube.com/user/KepowOb">Kevin Powell</RefLink>
+            </ListItem>
+          </Appear>
+        </UnorderedList>
       </Slide>
     </Deck>
   );
