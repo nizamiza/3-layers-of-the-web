@@ -571,7 +571,7 @@ function App() {
       </Slide>
       <Slide>
         <Text>Good color contrast matters</Text>
-        <Image src={YzonePoorColorContrastImg} alt="Poor color contrast example" style={{ objectFit: 'contain' }} />
+        <Image src={YzonePoorColorContrastImg} alt="Poor color contrast example" style={{ objectFit: 'contain', height: '500px' }} />
       </Slide>
       <Slide>
         <Text>Tools to check color contrast:</Text>
